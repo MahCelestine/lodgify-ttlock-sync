@@ -8,8 +8,8 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
     
-    Route::get('/dashboard', function () {
+    Route::get('/', function () {
         return view('pages.index');
-    })->name('dashboard');
+    })->name('pages.index');
 
 });

@@ -35,4 +35,15 @@ return [
         ],
     ],
 
+    'lodgify' => [
+        'api_key' => env('LODGIFY_API_KEY'),
+    ],
+
+    'ttlock' => [
+    'client_id' => env('TTLOCK_CLIENT_ID'),
+    'client_secret' => env('TTLOCK_CLIENT_SECRET'),
+    'username' => env('TTLOCK_USER_NAME'),
+    'password' => env('TTLOCK_USER_PASSWORD'),
+],
+
 ];

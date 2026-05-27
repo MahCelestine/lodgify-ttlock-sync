@@ -9,6 +9,13 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
+// Planification du nettoyage automatique tous les jours à minuit
 Schedule::call(function () {
-    app(LockSyncServices::class)->handleSynchronization();
-})->twiceDaily(10, 20);
+    $service = app(LockSyncServices::class);
+    
+    $report = ['cleaned' => 0]; 
+    
+    $result = $service->cleanExpiredPasscodes($report);
+    
+    \Log::info("Nettoyage automatique des codes expiré effectué.", $result);
+})->daily();
